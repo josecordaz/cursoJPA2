@@ -3,7 +3,7 @@ package cursojpa;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-public class CursoJPA {
+public class A_PrimerConexion {
     public static void main(String[] args) {
         EntityManagerFactory emf = null;
         try{

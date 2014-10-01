@@ -8,7 +8,7 @@ import mx.com.lobos.entities.Equipos;
 import mx.com.lobos.util.ConvierteObjetos;
 import mx.com.lobos.util.JSONUtil;
 
-public class CursoJPA3 {
+public class B_Controladores {
     public static void main(String[] args) {
         EntityManagerFactory emf = null;
         EquiposJpaController ejc;
