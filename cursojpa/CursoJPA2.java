@@ -14,10 +14,10 @@ public class CursoJPA2 {
         } catch (Exception ex){
             System.out.println(ex.getMessage());
         } finally {
-            if(em != null && em.isOpen()){
+            if(em != null){
                 em.close();
             }
-            if(emf != null && emf.isOpen()){
+            if(emf != null){
                 emf.close();
             }
         }
