@@ -4,7 +4,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-public class CursoJPA2 {
+public class C_EntityManager {
     public static void main(String[] args) {
         EntityManagerFactory emf = null;
         EntityManager em =  null;

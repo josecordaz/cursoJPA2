@@ -8,6 +8,7 @@ public class A_PrimerConexion {
         EntityManagerFactory emf = null;
         try{
             emf = Persistence.createEntityManagerFactory("cursoJPAPU");
+            System.out.println("Prueba de conexión exitosa");
         } catch (Exception ex){
             System.out.println(ex.getMessage());
         } finally {
