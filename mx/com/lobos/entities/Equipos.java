@@ -5,7 +5,6 @@
 package mx.com.lobos.entities;
 import java.io.Serializable;
 import javax.persistence.Basic;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -28,7 +27,8 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Equipos.findAll", query = "SELECT e FROM Equipos e"),
     @NamedQuery(name = "Equipos.findByIdEquipo", query = "SELECT e FROM Equipos e WHERE e.idEquipo = :idEquipo"),
     @NamedQuery(name = "Equipos.findByAbreviatura", query = "SELECT e FROM Equipos e WHERE e.abreviatura = :abreviatura"),
-    @NamedQuery(name = "Equipos.findByNombre", query = "SELECT e FROM Equipos e WHERE e.nombre = :nombre")})
+    @NamedQuery(name = "Equipos.findByNombre", query = "SELECT e FROM Equipos e WHERE e.nombre = :nombre"),
+    @NamedQuery(name = "Equipos.findByIdGrupo", query = "SELECT e FROM Equipos e WHERE e.idGrupo = :idGrupo")})
 public class Equipos implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id

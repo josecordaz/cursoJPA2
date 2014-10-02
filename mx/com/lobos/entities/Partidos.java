@@ -30,7 +30,8 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Partidos.findAll", query = "SELECT p FROM Partidos p"),
     @NamedQuery(name = "Partidos.findById", query = "SELECT p FROM Partidos p WHERE p.id = :id"),
     @NamedQuery(name = "Partidos.findByFase", query = "SELECT p FROM Partidos p WHERE p.fase = :fase"),
-    @NamedQuery(name = "Partidos.findByFecha", query = "SELECT p FROM Partidos p WHERE p.fecha = :fecha")})
+    @NamedQuery(name = "Partidos.findByFecha", query = "SELECT p FROM Partidos p WHERE p.fecha = :fecha"),
+    @NamedQuery(name = "Partidos.findByEstadio", query = "SELECT p FROM Partidos p WHERE p.idEstadio = :estadio")})
 public class Partidos implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
