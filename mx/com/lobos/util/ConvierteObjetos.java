@@ -99,12 +99,11 @@ public class ConvierteObjetos {
             } else{
                 objJSON = new JSONObject();
                 for (Iterator<Object[]> iter = data.iterator(); iter.hasNext(); ) {
-                    String element = iter.next().toString();
+                    String element = iter.next()+"";
                     objJSON.put(headers[0],element);
                     jsonArray.add(objJSON,config);
                 }
             } 
-            
             
             jsonStringHsm.put("success",    success);
             jsonStringHsm.put("message",    message);
