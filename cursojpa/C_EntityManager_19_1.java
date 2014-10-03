@@ -5,16 +5,16 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
-import mx.com.lobos.entities.Equipos;
+import mx.com.lobos.entities.Grupos;
 import mx.com.lobos.util.ConvierteObjetos;
 import mx.com.lobos.util.JSONUtil;
 
-public class C_EntityManager6 {
+public class C_EntityManager_19_1 {
     public static void main(String[] args) {
         EntityManagerFactory emf = null;
         EntityManager em =  null;
         Query query;
-        List<Equipos> equipos;
+        List<Grupos> equipos;
         String res;
         StringBuilder consulta;
         try{
@@ -22,13 +22,15 @@ public class C_EntityManager6 {
             em = emf.createEntityManager();
             
             consulta = new StringBuilder();
-            consulta.append("select e ");
-            consulta.append("from Equipos e");
             
-            query = em.createQuery(consulta.toString());
+            consulta.append("SELECT * ");
+            consulta.append("FROM grupos e");
+            
+            query = em.createNativeQuery(consulta.toString(),Grupos.class);
             
             equipos = query.getResultList();
-            res = ConvierteObjetos.generaJsonString(true,"Consulta exitosa", equipos.size(), equipos);
+            res = ConvierteObjetos.generaJsonString(true,"Consulta exitosa", equipos.size(),equipos);
+            
         /**/System.out.println(JSONUtil.formatJSONPretty(res));
         } catch (Exception ex){
             System.out.println(ex.getMessage());

@@ -52,7 +52,7 @@ from Partidos p
     join p.idEstadio es
 where es.ciudad = "Fortaleza"
 --11.- Mostrar los estadios donde han jugado equipos del grupo "D"
-select es
+select distinct es 
 from Partidos p 
     join p.idEstadio es 
     join p.idEquipo1 e1 
