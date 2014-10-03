@@ -6,7 +6,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
 import mx.com.lobos.entities.Equipos;
-import mx.com.lobos.entities.Partidos;
+import mx.com.lobos.entities.Grupos;
 import mx.com.lobos.util.ConvierteObjetos;
 import mx.com.lobos.util.JSONUtil;
 
@@ -19,7 +19,7 @@ public class C_EntityManager_33_ex1 {
         EntityManagerFactory emf = null;
         EntityManager em =  null;
         Query query;
-        List<Equipos> Equipos;
+        List<Equipos> equipos;
         String res;
         Equipos equipo;
         int idEquipo = 5;
@@ -29,8 +29,8 @@ public class C_EntityManager_33_ex1 {
             
             em.getTransaction().begin();
             
-            query = em.createNamedQuery("Equipos.findByIdEquipo");
-            query.setParameter("idEquipo",idEquipo);
+            query = em.createNamedQuery("Equipos.findByAbreviatura");
+            query.setParameter("abreviatura","SNT");
             
             equipos = query.getResultList();
             
@@ -38,7 +38,7 @@ public class C_EntityManager_33_ex1 {
             System.out.println(JSONUtil.formatJSONPretty(res));
             
             equipo = em.getReference(Equipos.class,idEquipo);
-            equipo.setNombre("SPAIN");
+            equipo.setIdGrupo(em.getReference(Grupos.class,6));
             
             em.merge(equipo);
             
