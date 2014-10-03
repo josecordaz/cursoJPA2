@@ -5,27 +5,35 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
-import mx.com.lobos.entities.Equipos;
-import mx.com.lobos.entities.Grupos;
+import javax.persistence.TypedQuery;
 import mx.com.lobos.util.ConvierteObjetos;
 import mx.com.lobos.util.JSONUtil;
 
-public class C_EntityManager5 {
+public class C_EntityManager_11 {
     public static void main(String[] args) {
         EntityManagerFactory emf = null;
         EntityManager em =  null;
         Query query;
-        List<Equipos> equipos;
+        List<Object[]> equipos;
         String res;
         try{
             emf = Persistence.createEntityManagerFactory("cursoJPAPU");
-            
             em = emf.createEntityManager();
-            query = em.createNamedQuery("Equipos.findByIdGrupo");
-            query.setParameter("idGrupo",em.getReference(Grupos.class,3));
+            
+            StringBuilder consulta = new StringBuilder();
+            
+            consulta.append("select es.nombre ");
+            consulta.append("from Estadios es ");
+            consulta.append("order by es.nombre");
+            
+            query = em.createQuery(consulta.toString());
+            
+            String headers[]= {"nombre"};
             
             equipos = query.getResultList();
-            res = ConvierteObjetos.generaJsonString(true,"Consulta exitosa", equipos.size(), equipos);
+            res = ConvierteObjetos.generaJsonString(true,"Consulta exitosa", equipos.size(),equipos,headers);
+            
+            //res = ConvierteObjetos.generaJsonString(true,"Consulta exitosa", equipos.size(),equipos,headers);
         /**/System.out.println(JSONUtil.formatJSONPretty(res));
         } catch (Exception ex){
             System.out.println(ex.getMessage());

@@ -7,7 +7,6 @@ import javax.persistence.Persistence;
 import javax.persistence.Query;
 import mx.com.lobos.controllers.GruposJpaController;
 import mx.com.lobos.entities.Equipos;
-import mx.com.lobos.entities.Grupos;
 import mx.com.lobos.util.ConvierteObjetos;
 import mx.com.lobos.util.JSONUtil;
 
@@ -27,7 +26,6 @@ public class C_EntityManager4 {
             em = emf.createEntityManager();
             query = em.createNamedQuery("Equipos.findByIdGrupo");
             query.setParameter("idGrupo",gjc.findGrupos(3));
-            
             
             equipos = query.getResultList();
             res = ConvierteObjetos.generaJsonString(true,"Consulta exitosa", equipos.size(), equipos);

@@ -34,13 +34,8 @@
 package mx.com.lobos.ex;
 
 import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.FileWriter;
-import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.Enumeration;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.regex.Matcher;
@@ -62,7 +57,6 @@ public class MsgError {
  * @return 
  */
     public String getMsgError(Throwable ex, String strMetodo){
-        PrintWriter out = null;
         String strMensaje = "",strMensajeUsuario = "",temp;
         StringBuilder       sb = null;
         try {
@@ -89,19 +83,11 @@ public class MsgError {
                     break;
                 }
             }
-            out = new PrintWriter(new BufferedWriter(new FileWriter("d:\\errores.txt", true)));
-            out.println(sb.toString());
 //            log.error(sb.toString());
             
         } catch (Exception ex1) {
             Logger.getLogger(MsgError.class.getName()).log(Level.SEVERE, null, ex1);
-        } finally {
-            try {
-                out.close();
-            } catch (Exception ex1) {
-                Logger.getLogger(MsgError.class.getName()).log(Level.SEVERE, null, ex1);
-            }
-        }
+        } 
         if(strMensaje.equals("java.lang.NullPointerException")||
                 strMensaje.equals("java.lang.ArrayIndexOutOfBoundsException")||
                 strMensaje.equals("java.lang.NumberFormatException")){

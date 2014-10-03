@@ -5,7 +5,7 @@ select p
 from Partidos p
 --2.- Mostrar todos los estadioss
 select es 
-from Estadio es
+from Estadios es
 --3.- Mostrar todos los grupos
 select g 
 from Grupos g

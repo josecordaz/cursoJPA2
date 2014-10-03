@@ -32,6 +32,7 @@
 package mx.com.lobos.util;
 
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import mx.com.lobos.ex.LoboException;
 import mx.com.lobos.ex.MsgError;
@@ -87,13 +88,23 @@ public class ConvierteObjetos {
             config.setIgnoreDefaultExcludes(false);
             config.setCycleDetectionStrategy(CycleDetectionStrategy.LENIENT);
             
-            for(Object[] reg:data){
-                objJSON = new JSONObject();
-                for(int i = 0; i < headers.length; i++){
-                    objJSON.put(headers[i],reg[i]);
+            if(data.get(0) instanceof Object[]){
+                for(Object[] reg:data){
+                    objJSON = new JSONObject();
+                    for(int i = 0; i < headers.length; i++){
+                        objJSON.put(headers[i],reg[i]);
+                    }
+                    jsonArray.add(objJSON,config);
                 }
-                jsonArray.add(objJSON,config);
-            }
+            } else{
+                objJSON = new JSONObject();
+                for (Iterator<Object[]> iter = data.iterator(); iter.hasNext(); ) {
+                    String element = iter.next().toString();
+                    objJSON.put(headers[0],element);
+                    jsonArray.add(objJSON,config);
+                }
+            } 
+            
             
             jsonStringHsm.put("success",    success);
             jsonStringHsm.put("message",    message);
