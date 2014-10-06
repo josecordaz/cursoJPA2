@@ -1,13 +1,11 @@
 package cursojpa;
 
-import java.util.Calendar;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
 import mx.com.lobos.entities.Equipos;
-import mx.com.lobos.entities.Estadios;
 import mx.com.lobos.entities.Partidos;
 import mx.com.lobos.util.ConvierteObjetos;
 import mx.com.lobos.util.JSONUtil;
