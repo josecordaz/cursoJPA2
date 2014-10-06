@@ -6,7 +6,6 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
 import mx.com.lobos.entities.Equipos;
-import mx.com.lobos.entities.Grupos;
 import mx.com.lobos.util.ConvierteObjetos;
 import mx.com.lobos.util.JSONUtil;
 
@@ -17,8 +16,6 @@ public class C_EntityManager_34 {
         Query query;
         List<Equipos> equipos;
         String res;
-        Equipos equipo;
-        int idEquipo = 5;
         try{
             emf = Persistence.createEntityManagerFactory("cursoJPAPU");
             em = emf.createEntityManager();
