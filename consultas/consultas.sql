@@ -21,22 +21,23 @@ select e
 from Equipos e 
 where e.nombre 
     like "U%"
---6.- Mostrar los equipos que sean del grupo "B"
+--7.- Mostrar los equipos que sean del grupo "B"
 select e 
 from Equipos e 
     join e.idGrupo g 
 where g.nombre = "B"
---7.- Mostrar los partidos jugados en el estadio "Arena de Sao Paulo"
+--8.- Mostrar los partidos jugados en el estadio "Arena de Sao Paulo"
 select p 
 from Partidos p 
     join p.idEstadio es 
 where es.nombre = "Arena de Sao Paulo"
---8.- Mostrar los partidos jugados en la ciudad de "Brasilia"
+--9.- Mostrar los partidos jugados en la ciudad de "Brasilia"
 select p 
 from Partidos p 
     join p.idEstadio es 
 where es.ciudad = "Brasilia"
---9.- Mostrar los equipos que se han enfrentado en la ciudad de "Rio De Janeiro"
+--10.- Mostrar los equipos que se han 
+--enfrentado en la ciudad de "Rio De Janeiro"
 select e1.nombre, 
     e2.nombre 
 from Partidos p 
@@ -44,14 +45,14 @@ from Partidos p
     join p.idEquipo2 e2 
     join p.idEstadio es 
 where es.ciudad = "Rio De Janeiro"
---10.- Mostrar los equipo que han jugado en la ciudad de "Fortaleza"
+--11.- Mostrar los equipo que han jugado en la ciudad de "Fortaleza"
 select e1.nombre, e2.nombre
 from Partidos p
     join p.idEquipo1 e1 
     join p.idEquipo2 e2
     join p.idEstadio es
 where es.ciudad = "Fortaleza"
---11.- Mostrar los estadios donde han jugado equipos del grupo "D"
+--12.- Mostrar los estadios donde han jugado equipos del grupo "D"
 select distinct p.idEstadio 
 from Partidos p 
 where p.idEquipo1.idGrupo.nombre = "D"

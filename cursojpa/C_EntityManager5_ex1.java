@@ -20,8 +20,8 @@ public class C_EntityManager5_ex1 {
         try{
             emf = Persistence.createEntityManagerFactory("cursoJPAPU");
             em = emf.createEntityManager();
-            query = em.createNamedQuery("Partidos.findByEstadio");
-            query.setParameter("estadio",em.getReference(Estadios.class,3));
+            query = em.createNamedQuery("Partidos.findById");
+            query.setParameter("id",em.getReference(Partidos.class,7));
             
             partidos = query.getResultList();
             res = ConvierteObjetos.generaJsonString(true,"Consulta exitosa", partidos.size(), partidos);
